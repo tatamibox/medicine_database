@@ -9,11 +9,16 @@
 </head>
 
 <body>
+    <h1>Medicine Catalog</h1>
     <% for (let m of medicine) { %>
         <li>
-            <%= m.name %>
+            <a href="/medicine/<%= m._id %>">
+                <%= m.name %>
+            </a>
         </li>
         <% } %>
+
+
 </body>
 
 </html>

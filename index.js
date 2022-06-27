@@ -26,8 +26,20 @@ app.get('/medicine', async (req, res) => {
     res.render('medicine/index', { medicine });
 })
 
+app.get('/medicine/new', (req, res) => {
+    res.render('medicine/new');
+})
 app.get('/medicine/:id', async (req, res) => {
     const { id } = req.params;
     const medicine = await Medicine.findById(id);
     res.render('medicine/show', { medicine })
 })
+
+app.post('/medicine', async (req, res) => {
+    const newMedicine = new Medicine(req.body);
+    await newMedicine.save();
+    res.redirect(`/medicine/${newMedicine._id}`)
+})
+
+
+
