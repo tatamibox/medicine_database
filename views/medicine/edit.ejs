@@ -21,7 +21,7 @@
 
     <body>
         <h1>Edit medicine</h1>
-        <form action="/medicine" method="POST">
+        <form action="/medicine/<%= medicine._id %>?_method=PUT" method="POST">
             <input type="text" name="name" placeholder="Medicine Name" value="<%= medicine.name %>">
             <input type="text" name="dose" placeholder="Dose (#)" value="<%= medicine.dose %>">
             <input type="text" name="purpose" placeholder="purpose" value="<%= medicine.purpose %>">

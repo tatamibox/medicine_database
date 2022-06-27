@@ -33,6 +33,11 @@ app.delete('/medicine/:id', async (req, res) => {
     const deletedMedicine = await Medicine.findByIdAndDelete(id);
     res.redirect('/medicine');
 })
+app.put('/medicine/:id', async (req, res) => {
+    const { id } = req.params;
+    const medicine = await Medicine.findByIdAndUpdate(id, req.body, { runValidators: true });
+    res.redirect(`/medicine/${medicine._id}`)
+})
 app.get('/medicine/new', (req, res) => {
     res.render('medicine/new');
 })
