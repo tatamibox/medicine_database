@@ -25,3 +25,9 @@ app.get('/medicine', async (req, res) => {
     const medicine = await Medicine.find({});
     res.render('medicine/index', { medicine });
 })
+
+app.get('/medicine/:id', async (req, res) => {
+    const { id } = req.params;
+    const medicine = await Medicine.findById(id);
+    res.render('medicine/show', { medicine })
+})
