@@ -1,0 +1,19 @@
+const mongoose = require('mongoose');
+
+const medicineSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    dose: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+    purpose: String
+
+})
+
+const Medicine = mongoose.model('Medicine', medicineSchema);
+
+module.exports = Medicine;
